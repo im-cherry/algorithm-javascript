@@ -19,9 +19,10 @@ function binarySearch(array, findValue) {
   return -1;
 }
 
-// 이진 탐색
+// 정렬된 배열
 const array = [1, 1, 5, 124, 400, 599, 1004, 2876, 8712];
 
+// 이진 탐색
 console.log(binarySearch(array, 2876)); // 7
 console.log(binarySearch(array, 1)); // 1
 console.log(binarySearch(array, 500)); // -1

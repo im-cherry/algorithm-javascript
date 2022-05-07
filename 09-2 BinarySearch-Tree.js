@@ -1,8 +1,7 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.left = null;
-    this.right = null;
+    this.left = this.right = null;
   }
 }
 
@@ -18,42 +17,46 @@ class BinarySearchTree {
       return;
     }
 
-    let currentNode = this.root;
-    while (currentNode !== null) {
-      if (currentNode.value < value) {
-        if (currentNode.right === null) {
-          currentNode.right = newNode;
+    let currNode = this.root;
+    while (currNode !== null) {
+      if (currNode.value < value) {
+        if (currNode.right === null) {
+          currNode.right = newNode;
           break;
         }
-        currentNode = currentNode.right;
+        currNode = currNode.right;
       } else {
-        if (currentNode.left === null) {
-          currentNode.left = newNode;
+        if (currNode.left === null) {
+          currNode.left = newNode;
           break;
         }
-        currentNode = currentNode.left;
+        currNode = currNode.left;
       }
     }
   }
 
   has(value) {
-    let currentNode = this.root;
+    let currNode = this.root;
 
-    while (currentNode !== null) {
-      if (currentNode.value === value) {
+    while (currNode !== null) {
+      if (currNode.value === value) {
         return true;
       }
 
-      if (currentNode.value < value) {
-        currentNode = currentNode.right;
+      if (currNode.value < value) {
+        currNode = currNode.right;
       } else {
-        currentNode = currentNode.left;
+        currNode = currNode.left;
       }
     }
+
     return false;
   }
 }
+
+// 이진 탐색 트리
 const tree = new BinarySearchTree();
+
 tree.insert(5);
 tree.insert(4);
 tree.insert(7);
@@ -62,6 +65,6 @@ tree.insert(5);
 tree.insert(6);
 tree.insert(2);
 
-// 이진 탐색
+// 이진 탐색 트리 탐색
 console.log(tree.has(8)); // true
 console.log(tree.has(1)); // false

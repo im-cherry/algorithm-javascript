@@ -15,13 +15,13 @@ class Stack {
     const newNode = new Node(value);
     newNode.next = this.top;
     this.top = newNode;
-    this.size += 1;
+    this.size++;
   }
 
   pop() {
     const returnValue = this.top.value;
     this.top = this.top.next;
-    this.size -= 1;
+    this.size--;
     return returnValue;
   }
 }
@@ -34,12 +34,8 @@ stack.push(2);
 stack.push(5);
 stack.push(7);
 
-console.log(stack); // Stack { top: Node { value: 7, next: Node { value: 5, next: [Node] } }, size: 3 }
-
 // 스택 원소 삭제
 stack.pop();
 
-console.log(stack); // Stack { top: Node { value: 5, next: Node { value: 2, next: null } }, size: 2 }
-
 // 스택 Top 요소
-console.log(stack.top); // Node { value: 5, next: Node { value: 2, next: null }
+console.log(stack.top); // Node { value: 5, next: Node { value: 2, next: null } }
